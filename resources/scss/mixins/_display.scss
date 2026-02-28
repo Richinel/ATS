@@ -1,0 +1,25 @@
+@use '../base/variables' as *;
+
+
+@mixin bootstrap-display {
+    @each $breakpoint, $container-max-width in $grid-breakpoints {
+        $breakpoint-name: if($breakpoint == 'xs', '', '-' + $breakpoint);
+
+        // Available display properties
+        $display-properties: (
+            flex, grid, inline-flex, block, inline-block, inline, none, table, table-row, table-cell, table-caption, contents
+        );
+
+        @each $display in $display-properties {
+            .d#{$breakpoint-name}-#{$display} {
+                @if $breakpoint != 'xs' {
+                    @media (min-width: $container-max-width) {
+                        display: $display;
+                    }
+                } @else {
+                    display: $display;
+                }
+            }
+        }
+    }
+}

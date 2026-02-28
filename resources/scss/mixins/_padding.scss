@@ -1,0 +1,42 @@
+@use '../base/variables' as *;
+
+// Explicit order so generation is predictable
+$breakpoints-order: xs, sm, md, lg, xl, xxl;
+
+// Helper for mobile-first media
+@mixin up($abbr) {
+    $min: map-get($grid-breakpoints, $abbr);
+    @if $abbr == xs or $min == 0 {
+        @content; // base: no media query
+    } @else {
+        @media (min-width: $min) { @content; }
+    }
+}
+
+// Shared generator: pass the class prefix and a CSS property list
+// e.g. responsive-space('pt', (padding-top)) or ('py', (padding-top, padding-bottom))
+@mixin responsive-space($prefix, $properties...) {
+    @each $abbr in $breakpoints-order {
+        @include up($abbr) {
+            @each $value in $values {
+                .#{$prefix}-#{$abbr}-#{$value} {
+                    @each $prop in $properties {
+                        #{$prop}: #{$value}px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin responsive-padding-top {
+    @include responsive-space('pt', padding-top);
+}
+
+@mixin responsive-padding-bottom {
+    @include responsive-space('pb', padding-bottom);
+}
+
+@mixin responsive-padding-block {
+    @include responsive-space('py', padding-top, padding-bottom);
+}

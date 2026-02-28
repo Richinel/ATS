@@ -1,0 +1,61 @@
+@use 'variables' as *;
+@use '../mixins/font-size' as *;
+@use '../mixins/display' as display;
+@use '../mixins/flex' as flex;
+@use '../mixins/padding' as padding;
+@use '../mixins/margin' as margin;
+@use '../mixins/responsive' as *;
+
+@include display.bootstrap-display;
+@include flex.flex-properties;
+@include padding.responsive-padding-top;
+@include padding.responsive-padding-bottom;
+@include padding.responsive-padding-block;
+@include margin.responsive-margin-top;
+@include margin.responsive-margin-bottom;
+@include margin.responsive-margin-block;
+
+@view-transition {
+    navigation: auto;
+}
+
+:root::view-transition-image-pair(*) {
+    position: absolute;
+    inset: 0;
+
+    animation-duration: 350ms;
+    animation-fill-mode: inherit;
+}
+
+::view-transition-image-pair(root) {
+    animation-duration: 350ms;
+    isolation: auto;
+}
+
+:root {
+    interpolate-size: allow-keywords;
+}
+
+html,
+body {
+    @include font(16,32);
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-content-regular;
+    color: $black;
+    background-color: $white;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.list-style-none {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}

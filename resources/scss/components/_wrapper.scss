@@ -1,0 +1,13 @@
+// Wrapper
+@use '../base/variables' as *;
+
+.wrapper {
+    width: auto;
+    max-width: 1380px;
+    margin: auto;
+    padding: 0 2rem;
+
+    &.wrapper--xl {
+        max-width: 1920px;
+    }
+}

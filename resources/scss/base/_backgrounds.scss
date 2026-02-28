@@ -1,0 +1,27 @@
+@use 'variables' as *;
+
+//@each $key, $value in $colors {
+//    .bg--#{$key} {
+//        background-color: $value;
+//    }
+//}
+
+@each $key-1, $value-1 in $colors {
+    @each $key-2, $value-2 in $colors {
+        @if $key-1 != $key-2 {
+            .bg--#{$key-1}-#{$key-2} {
+                /* Fallback to first color */
+                background-color: $value-1;
+
+                /* Top half first color, bottom half second color */
+                background-image: linear-gradient(
+                        to bottom,
+                        #{$value-1} 0,
+                        #{$value-2} 100%
+                );
+            }
+        }
+    }
+}
+
+// Dit kan je dan gebruiken als volgt: .bg--black-white;

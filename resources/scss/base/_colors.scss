@@ -1,0 +1,7 @@
+@use 'variables' as *;
+
+@each $key, $value in $colors {
+    .color--#{$key} {
+        color: $value !important;
+    }
+}

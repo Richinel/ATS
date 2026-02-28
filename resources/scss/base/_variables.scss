@@ -1,0 +1,100 @@
+// Variabeltjes
+
+// Font settings.
+
+// Commuter
+@font-face {
+    font-family: "CommuterExtraThin";
+    src: url("../../fonts/commuter-extra-thin.otf");
+}
+
+@font-face {
+    font-family: "CommuterThin";
+    src: url("../../fonts/commuter-thin.otf");
+}
+
+@font-face {
+    font-family: "CommuterRegular";
+    src: url("../../fonts/commuter-regular.otf");
+}
+
+@font-face {
+    font-family: "CommuterBold";
+    src: url("../../fonts/commuter-bold.ttf");
+}
+
+@font-face {
+    font-family: "CommuterExtraBold";
+    src: url("../../fonts/commuter-extra-bold.ttf");
+}
+
+// Fallback font for when Commuter starts to clown around
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&display=swap');
+
+$font-content-regular:      CommuterRegular, sans-serif;
+$font-content-bold:         CommuterBold, sans-serif;
+$font-content-extra-bold:   CommuterExtraBold, sans-serif;
+
+$font-content-alternative:  "Martel Sans", sans-serif;
+
+
+// Colors
+$black:         #000;
+$white:         #FFF;
+
+$grey-100:      #423d41;
+$grey-200:      #686868;
+$grey-300:      #767477;
+
+
+$green-100:     #009640;
+
+// Color maps
+$colors: (
+    'black'         : $black,
+    'white'         : $white,
+    'grey-100'      : $grey-100,
+    'grey-200'      : $grey-200,
+    'grey-300'      : $grey-100,
+    'green-100'     : $green-100
+);
+
+// Main website settings
+$website-width: 1380px;
+
+
+// Grid settings.
+$grid-columns: 12 !default;
+
+// Gutter width
+$grid-gutter-width: 15px;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 320px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+) !default;
+
+$container-max-widths: (
+    sm: 320px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px
+) !default;
+
+$grid-breakpoint-abbreviations: (
+    xs: "xs",
+    sm: "sm",
+    md: "md",
+    lg: "lg",
+    xl: "xl",
+    xxl: "xxl"
+) !default;
+
+$values: (
+    1, 10, 15, 16, 20, 25, 30, 32, 40, 50, 55, 60, 64, 70, 75, 80, 85, 90, 100, 120, 125, 128, 130, 150, 175, 200, 250
+);

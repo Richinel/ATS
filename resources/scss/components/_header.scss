@@ -1,0 +1,64 @@
+// Header
+@use '../base/variables' as *;
+@use '../mixins/responsive' as *;
+@use '../mixins/font-size' as *;
+
+header {
+
+    &.header--sticky {
+        position: sticky;
+        top: 0;
+    }
+}
+
+.header__logo {
+
+    img {
+        width: auto;
+        height: 65px;
+    }
+}
+
+.header-top__nav {
+
+    ul {
+        gap: 0.5rem;
+
+        li {
+
+            &:not(:nth-last-child(1 )) {
+
+                &::after {
+                    @include font(21, 28);
+                    margin: 0 0 0 .5rem;
+                    font-family: $font-content-alternative; // Ja dit moest ff zo, omdat ik die Commuter font Ali Illegali heb gedownload. Anders zie je rare tekens ipv slashes.
+                    font-weight: 900;
+                    color: $grey-300;
+                    content: '//';
+                }
+            }
+        }
+    }
+
+    a {
+        text-transform: uppercase;
+        font-family: $font-content-extra-bold;
+    }
+}
+
+.header__cart {
+    margin: 0 0 0 2rem;
+
+    svg {
+        width: 1.5rem;
+        height: 1.5rem;
+
+        path {
+            fill: $grey-300;
+        }
+    }
+
+    span {
+        transform: translateY(.25rem) translateX(.25rem);
+    }
+}

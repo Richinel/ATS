@@ -1,0 +1,40 @@
+@use '../base/variables' as *;
+
+$breakpoints-order: xs, sm, md, lg, xl, xxl;
+
+@mixin up($abbr) {
+    $min: map-get($grid-breakpoints, $abbr);
+    @if $abbr == xs or $min == 0 {
+        @content; // base: no media query
+    } @else {
+        @media (min-width: $min) { @content; }
+    }
+}
+
+// Generic generator used by the margin utilities below
+@mixin responsive-space($prefix, $properties...) {
+    @each $abbr in $breakpoints-order {
+        @include up($abbr) {
+            @each $value in $values {
+                .#{$prefix}-#{$abbr}-#{$value} {
+                    @each $prop in $properties {
+                        #{$prop}: #{$value}px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+// ----------------------------------------------------
+@mixin responsive-margin-top {
+    @include responsive-space('mt', margin-top);
+}
+
+@mixin responsive-margin-bottom {
+    @include responsive-space('mb', margin-bottom);
+}
+
+@mixin responsive-margin-block {
+    @include responsive-space('my', margin-top, margin-bottom);
+}
+

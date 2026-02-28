@@ -1,0 +1,43 @@
+@use '../base/variables' as *;
+
+
+// Mixin for responsive media queries
+@mixin media($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 599px) {
+            @content;
+        }
+    } @else if $breakpoint == tablet-portrait-up {
+        @media (min-width: 769px) {
+            @content;
+        }
+    } @else if $breakpoint == tablet {
+        @media (min-width: 768px) and (max-width: 1199px) {
+            @content;
+        }
+    } @else if $breakpoint == tablet-portrait {
+        @media (min-width: 768px) and (max-width: 991px) {
+            @content;
+        }
+    } @else if $breakpoint == tablet-portrait-down {
+        @media (max-width: 768px) {
+            @content;
+        }
+    } @else if $breakpoint == tablet-landscape-up {
+        @media (min-width: 992px) {
+            @content;
+        }
+    } @else if $breakpoint == tablet-landscape {
+        @media (min-width: 992px) and (max-width: 1199px) {
+            @content;
+        }
+    } @else if $breakpoint == tablet-landscape-down {
+        @media (max-width: 1199px) {
+            @content;
+        }
+    } @else if $breakpoint == desktop {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }
+}

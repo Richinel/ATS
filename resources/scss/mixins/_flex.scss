@@ -1,0 +1,159 @@
+@use '../base/variables' as *;
+
+
+@mixin flex-properties {
+    // Define available flex properties and their values
+    $flex-properties: (
+        'align-items': (start, end, center, baseline, stretch),
+        'justify-content': (start, end, center, between, around),
+        'align-self': (auto, start, end, center, baseline, stretch),
+        'flex-direction': (row, row-reverse, column, column-reverse),
+        'flex-wrap': (wrap, nowrap, wrap-reverse),
+        'flex-grow': (0, 1),
+        'flex-shrink': (0, 1),
+        'flex-basis': (auto, 0),
+        'order': map-get($grid-breakpoints, 'xs') + 1,
+    );
+
+    // Iterate over each flex property
+    @each $property, $values in $flex-properties {
+        // Generate classes for each value
+        @each $value in $values {
+            // Replace 'start' with 'flex-start' and 'end' with 'flex-end'
+            $value: if($value == 'start', 'flex-start', if($value == 'end', 'flex-end', $value));
+
+            // Generate class name based on property and value
+            $class-name: '#{$property}-#{$value}';
+
+            // Output the class with corresponding CSS rule
+            .#{$class-name} {
+                @if $property == 'justify-content' {
+                    @if $value == 'between' {
+                        justify-content: space-between;
+                    } @else {
+                        #{$property}: $value;
+                    }
+                } @else if $property == 'align-content' {
+                    @if $value == 'between' {
+                        align-content: space-between;
+                    } @else if $value == 'center' {
+                        align-content: center;
+                    } @else {
+                        #{$property}: $value;
+                    }
+                } @else {
+                    #{$property}: $value;
+                }
+            }
+        }
+    }
+
+    // Media queries for responsive behavior
+    @each $breakpoint, $container-max-width in $grid-breakpoints {
+        // Generate classes with breakpoints
+        $breakpoint-name: if($breakpoint == 'xs', '', '-' + $breakpoint);
+        @each $property, $values in $flex-properties {
+            // Iterate over each value of the flex property
+            @each $value in $values {
+                // Replace 'start' with 'flex-start' and 'end' with 'flex-end'
+                $value: if($value == 'start', 'flex-start', if($value == 'end', 'flex-end', $value));
+
+                // Generate class name based on property and value
+                $class-name: if($breakpoint != 'xs', '#{$property}#{$breakpoint-name}-#{$value}', '#{$property}-#{$value}');
+
+                // Output the class with corresponding CSS rule within media query
+                @if $property == 'justify-content' {
+                    @if $value == 'between' {
+                        @if $breakpoint != 'xs' {
+                            @media (min-width: $container-max-width) {
+                                .#{$class-name} {
+                                    justify-content: space-between;
+                                }
+                            }
+                        } @else {
+                            .#{$class-name} {
+                                justify-content: space-between;
+                            }
+                        }
+                    } @else {
+                        @if $breakpoint != 'xs' {
+                            @media (min-width: $container-max-width) {
+                                .#{$class-name} {
+                                    #{$property}: $value;
+                                }
+                            }
+                        } @else {
+                            .#{$class-name} {
+                                #{$property}: $value;
+                            }
+                        }
+                    }
+                } @else if $property == 'align-content' {
+                    @if $value == 'between' {
+                        @if $breakpoint != 'xs' {
+                            @media (min-width: $container-max-width) {
+                                .#{$class-name} {
+                                    align-content: space-between;
+                                }
+                            }
+                        } @else {
+                            .#{$class-name} {
+                                align-content: space-between;
+                            }
+                        }
+                    } @else {
+                        @if $breakpoint != 'xs' {
+                            @media (min-width: $container-max-width) {
+                                .#{$class-name} {
+                                    #{$property}: $value;
+                                }
+                            }
+                        } @else {
+                            .#{$class-name} {
+                                #{$property}: $value;
+                            }
+                        }
+                    }
+                } @else if $property == 'align-items' {
+                    @if $value == 'between' {
+                        @if $breakpoint != 'xs' {
+                            @media (min-width: $container-max-width) {
+                                .#{$class-name} {
+                                    align-items: space-between;
+                                }
+                            }
+                        } @else {
+                            .#{$class-name} {
+                                align-items: space-between;
+                            }
+                        }
+                    } @else {
+                        @if $breakpoint != 'xs' {
+                            @media (min-width: $container-max-width) {
+                                .#{$class-name} {
+                                    #{$property}: $value;
+                                }
+                            }
+                        } @else {
+                            .#{$class-name} {
+                                #{$property}: $value;
+                            }
+                        }
+                    }
+                } @else {
+                    @if $breakpoint != 'xs' {
+                        @media (min-width: $container-max-width) {
+                            .#{$class-name} {
+                                #{$property}: $value;
+                            }
+                        }
+                    } @else {
+                        .#{$class-name} {
+                            #{$property}: $value;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
