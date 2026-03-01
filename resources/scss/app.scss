@@ -11,4 +11,7 @@
 @use 'components/header';
 @use 'components/wrapper';
 
-body {}
+@use 'sections/home-products';
+@use 'sections/text-columns';
+
+@import '../../node_modules/bootstrap/scss/bootstrap-grid';

@@ -5,12 +5,9 @@
 @use '../mixins/font-size' as *;
 
 header {
-    font-size: .8269vw !important;
-
-    &.header--sticky {
-        position: sticky;
-        top: 0;
-    }
+    position: sticky;
+    top: 0;
+    z-index: 20;
 }
 
 .header__logo {
@@ -18,6 +15,10 @@ header {
     img {
         width: auto;
         height: 65px;
+
+        @media (max-width: 1634px) {
+            height: 25px;
+        }
     }
 }
 
@@ -47,6 +48,10 @@ header {
         text-transform: uppercase;
         font-family: $font-content-extra-bold;
     }
+
+    @media (max-width: 1634px) {
+        display: none;
+    }
 }
 
 .header__cart {
@@ -63,6 +68,13 @@ header {
 
     span {
         transform: translateY(.25rem) translateX(.25rem);
+    }
+}
+
+.header-bottom__inner {
+
+    @media (max-width: 1634px) {
+        justify-content: flex-end;
     }
 }
 
@@ -92,10 +104,28 @@ header {
             }
         }
     }
+
+    @media (max-width: 1634px) {
+        display: none;
+    }
 }
 
 .header-bottom__nav-right {
     gap: 1.5rem;
+
+    @media (max-width: 1634px) {
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+.header-bottom {
+
+    //@media (max-width: 768px) {
+    //    display: none;
+    //}
 }
 
 .header__cta-buttons {
@@ -106,6 +136,19 @@ header {
 
         a {
             font-family: $font-content-extra-bold;
+
+            svg {
+                max-width: 1rem;
+                height: .75rem;
+
+                path {
+                    fill: $green-100;
+                }
+            }
+
+            @media (max-width: 1366px) {
+                padding: .25rem 1rem;
+            }
         }
 
         &::before {
@@ -180,10 +223,18 @@ header {
 
             img {
                 height: 1.25rem;
+
+                @media (max-width: 1366px) {
+                    height: .75rem;
+                }
             }
 
             &.is-active {
                 display: none;
+            }
+
+            @media (max-width: 1366px) {
+                padding: 0 .25rem;
             }
         }
 
@@ -198,13 +249,17 @@ header {
 .header__language-selected {
     gap: .5rem;
     padding: .5rem;
-    cursor: pointer;;
+    cursor: pointer;
 
     a {
         display: flex;
 
         img {
             height: 1.25rem;
+
+            @media (max-width: 1366px) {
+                height: .75rem;
+            }
         }
 
         &:not(.is-active) {
@@ -228,5 +283,76 @@ header {
         svg {
             transform: scaleY(-1);
         }
+    }
+
+    @media (max-width: 1366px) {
+        padding: 0.1rem 0.25rem
+    }
+}
+
+.header__menu-btn {
+    margin-left: 1rem;
+
+    svg {
+        width: 2rem;
+        height: 2rem;
+
+        path {
+            fill: $green-100;
+        }
+    }
+
+    @media (min-width: 1635px) {
+        display: none;
+    }
+}
+
+.mobile-menu {
+    position: fixed;
+    inset: 7.2rem 0 0;
+    padding: 2rem 0;
+    z-index: 20;
+    overflow: auto;
+    transition: all 350ms ease;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-100px);
+
+    ul {
+        gap: 1.5rem;
+
+        li {
+            position: relative;
+            width: 100%;
+
+            &::before {
+                @include font(21, 28);
+                margin: 0 0 0 .5rem;
+                font-family: $font-content-alternative;
+                font-weight: 900;
+                color: $green-100;
+                letter-spacing: 3px;
+                content: '//';
+            }
+        }
+
+        &.is-active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+
+        }
+    }
+
+    @media (min-width: 1635px) {
+        display: none;
+    }
+
+    @media (min-width: 1367px){
+        inset: 9.4rem 0 0;
+    }
+
+    @media (min-width: 769px) and (max-width: 1366px ){
+        inset: 8.5rem 0 0;
     }
 }

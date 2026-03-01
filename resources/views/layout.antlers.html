@@ -8,8 +8,8 @@
         {{ vite src="resources/js/site.js" }}
     </head>
 
-    <header class="page-header header js-header">
-        <div class="header-top py-xs-30">
+    <header class="page-header header js-header bg--white">
+        <div class="header-top py-md-30 py-xs-20">
             <div class="wrapper wrapper--xl">
                 <div class="d-flex align-items-center justify-content-between">
                     <a href="/" class="header__logo d-flex">
@@ -44,12 +44,16 @@
 
                             <span class="color--green-100 font--alternative">(0)</span>
                         </div>
+
+                        <div class="header__menu-btn js-menu-button d-xxl-none d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/></svg>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="header-bottom bg--grey-200-grey-100 color--white py-xs-15">
+        <div class="header-bottom bg--grey-200-grey-100 color--white py-xs-10">
             <div class="wrapper wrapper--xl">
                 <div class="header-bottom__inner d-flex align-items-center justify-content-between">
                     <nav class="header-bottom__nav-left">
@@ -67,9 +71,19 @@
                     <div class="header-bottom__nav-right d-flex">
                         <ul class="d-flex align-items-center list-style-none header__cta-buttons">
                             {{ nav:header_ctas }}
-                                <li class="d-flex align-items-center">
+                                <li class="d-flex align-items-center {{ $additional_class }}">
                                     <a href="{{ $url }}" class="h3 text--uppercase btn">
-                                        {{ $title }}
+                                        {{ if $additional_class === 'is-phone' }}
+                                            <span class="d-md-block d-none">
+                                                {{ $title }}
+                                            </span>
+
+                                            <span class="d-md-none">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M224.2 89C216.3 70.1 195.7 60.1 176.1 65.4L170.6 66.9C106 84.5 50.8 147.1 66.9 223.3C104 398.3 241.7 536 416.7 573.1C493 589.3 555.5 534 573.1 469.4L574.6 463.9C580 444.2 569.9 423.6 551.1 415.8L453.8 375.3C437.3 368.4 418.2 373.2 406.8 387.1L368.2 434.3C297.9 399.4 241.3 341 208.8 269.3L253 233.3C266.9 222 271.6 202.9 264.8 186.3L224.2 89z"/></svg>
+                                            </span>
+                                        {{ else }}
+                                            {{ $title }}
+                                        {{ /if }}
                                     </a>
                                 </li>
                             {{ /nav:header_ctas }}
@@ -120,6 +134,30 @@
             </div>
         </div>
     </header>
+
+    <div class="mobile-menu js-mobile-menu bg--grey-100 color--white">
+        <div class="wrapper">
+            <ul class="list-style-none d-flex flex-wrap">
+                {{ nav:main_navigation }}
+                    <li class="d-flex align-items-center">
+                        <a href="{{ $url }}" class="h3 color--white text--uppercase">
+                            {{ $title }}
+                        </a>
+                    </li>
+                {{ /nav:main_navigation }}
+            </ul>
+
+            <ul class="mt-xs-30 list-style-none d-flex flex-wrap">
+                {{ nav:header_ctas }}
+                    <li class="d-flex align-items-center">
+                        <a href="{{ $url }}" class="h3 color--white text--uppercase">
+                            {{ $title }}
+                        </a>
+                    </li>
+                {{ /nav:header_ctas }}
+            </ul>
+        </div>
+    </div>
 
     <body class="">
         {{ template_content }}

@@ -4,7 +4,8 @@
 @use '../mixins/font-size' as *;
 
 .cms-output {
-    @include font(16, 32);
+    @include font(20, 32);
+    color: $grey-200;
 
     &.intro {
         @include font(20, 32);
@@ -17,7 +18,13 @@
     h4,
     h5,
     h6 {
-        margin-bottom: 2rem;
+        margin-bottom: 0;
+        letter-spacing: 1px;
+        font-family: $font-content-bold;
+
+        strong {
+            color: $grey-200;
+        }
     }
 
     p {

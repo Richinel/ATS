@@ -1,0 +1,12 @@
+// Tekstkolommen
+@use '../base/variables' as *;
+@use '../mixins/responsive' as *;
+@use '../mixins/font-size' as *;
+
+.text-columns {
+    padding: 3.125rem 0;
+
+    + .text-columns {
+        padding: 0 0 3.125rem;
+    }
+}

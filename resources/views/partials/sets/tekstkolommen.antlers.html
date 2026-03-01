@@ -1,0 +1,13 @@
+<section class="text-columns">
+    <div class="wrapper">
+        <div class="row">
+            {{ tekstkolommen_kolommen  }}
+                <div class="col {{ if total_results == 2 }}col-md-6{{ /if }}">
+                    <div class="cms-output">
+                        {{ tekstkolommen_content }}
+                    </div>
+                </div>
+            {{ /tekstkolommen_kolommen }}
+        </div>
+    </div>
+</section>

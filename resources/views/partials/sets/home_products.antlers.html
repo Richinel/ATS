@@ -1,0 +1,25 @@
+<section class="home-products py-md-75 py-xs-30 bg--green-100 bg--pattern">
+    <div class="wrapper wrapper--xl">
+        <div class="home-products__inner d-grid">
+            {{ producten }}
+                <a href="{{ $link }}" class="home-product-item d-flex align-items-end bg--white" style="background-image: url('{{ foto }}')">
+                    <div class="align-items-center justify-content-between home-product-item__title h2 text--uppercase color--grey-200 d-lg-flex d-none">
+                        {{ titel }}
+
+                        <div class="home-product-item__icon bg--green-100 color--white d-md-flex d-none justify-content-center align-items-center">
+                            >
+                        </div>
+                    </div>
+
+                    <img src="{{ foto_mobiel }}" alt="{{ titel }}" class="home-product-item__image d-lg-none">
+                </a>
+            {{ /producten }}
+        </div>
+
+        <div class="home-products__cert">
+            <img src="/assets/img/recycled-rijplaten.png" alt="Recycled">
+        </div>
+    </div>
+
+    <div class="home-products__gradient"></div>
+</section>
