@@ -7,6 +7,10 @@
     font-family: $font-content-alternative;
 }
 
+.text--uppercase {
+    text-transform: uppercase;
+}
+
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -14,7 +18,7 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
     margin: 0;
-    font-family: $font-content-regular;
+    font-family: $font-content-bold;
     color: $green-100;
     letter-spacing: 0.125rem;
 }
@@ -22,8 +26,13 @@ h6, .h6 {
 
 h1,
 .h1 {
-    font-size: clamp(24px, 2.5vw, 32px);
-    line-height: clamp(32px, 2.5vw, 48px);
+    font-size: clamp(1.5rem, 1.5vw, 2rem);
+    line-height: clamp(2rem, 1.5vw, 3rem);
+
+    @media(min-width: 1367px) {
+        font-size: 2vw;
+        line-height: 2.5vw;
+    }
 
 }
 
@@ -31,6 +40,22 @@ h2,
 .h2 {
     //@include font(24, 32);
 
-    font-size: clamp(24px, 1.5vw, 24px);
-    line-height: clamp(32px, 2vw, 30px);
+    font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+    line-height: clamp(2rem, 2vw, 2rem);
+
+    @media(min-width: 1635px) {
+        font-size: 1.25vw;
+        line-height: 2.25vw;
+    }
+}
+
+h3,
+.h3 {
+    font-size: 1.025rem;
+    line-height: 1.5rem;
+
+    @media(min-width: 1635px) {
+        font-size: 0.75vw;
+        line-height: 1vw;
+    }
 }

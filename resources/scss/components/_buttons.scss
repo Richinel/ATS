@@ -1,0 +1,30 @@
+// Buttons
+@use '../base/variables' as *;
+@use '../mixins/responsive' as *;
+@use '../mixins/font-size' as *;
+
+.btn {
+    @include font(14, 16);
+    position: relative;
+    padding: .675rem 1.875rem;
+    text-transform: uppercase;
+    font-family: $font-content-bold;
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 3;
+
+    @each $key, $value in $colors {
+        &.btn-skewed--#{$key} {
+            position: relative;
+
+            &::after {
+                position: absolute;
+                inset: 0;
+                transform: skewX(5deg);
+                background-color: $value;
+                z-index: 0;
+                content: '';
+            }
+        }
+    }
+}

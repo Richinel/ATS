@@ -1,9 +1,11 @@
 // Header
 @use '../base/variables' as *;
+@use '../components/buttons' as *;
 @use '../mixins/responsive' as *;
 @use '../mixins/font-size' as *;
 
 header {
+    font-size: .8269vw !important;
 
     &.header--sticky {
         position: sticky;
@@ -34,6 +36,7 @@ header {
                     font-family: $font-content-alternative; // Ja dit moest ff zo, omdat ik die Commuter font Ali Illegali heb gedownload. Anders zie je rare tekens ipv slashes.
                     font-weight: 900;
                     color: $grey-300;
+                    letter-spacing: 3px;
                     content: '//';
                 }
             }
@@ -60,5 +63,170 @@ header {
 
     span {
         transform: translateY(.25rem) translateX(.25rem);
+    }
+}
+
+.header-bottom__nav-left {
+
+    ul {
+        gap: .5rem;
+
+        li {
+            gap: .5rem;
+            position: relative;
+
+            a {
+                letter-spacing: 1px;
+            }
+
+            &:not(:nth-last-child(1)) {
+
+                &::after {
+                    display: inline-block;
+                    font-family: $font-content-alternative;
+                    font-weight:900;
+                    color: $green-100;
+                    letter-spacing: 3px;
+                    content: '//';
+                }
+            }
+        }
+    }
+}
+
+.header-bottom__nav-right {
+    gap: 1.5rem;
+}
+
+.header__cta-buttons {
+    gap: 1rem;
+
+    li {
+        position: relative;
+
+        a {
+            font-family: $font-content-extra-bold;
+        }
+
+        &::before {
+            position: absolute;
+            z-index: 0;
+            content: '';
+        }
+
+        &::after {
+            position: absolute;
+            inset: 0;
+            transform: skewX(-20deg);
+            z-index: 0;
+            content: '';
+        }
+
+        &:nth-child(1) {
+
+            a {
+                color: $white;
+            }
+
+            &::after {
+                background-color: $orange-100;
+            }
+        }
+
+        &:nth-child(2) {
+
+            a {
+                color: $orange-100;
+            }
+
+            &::after {
+                background-color: $white;
+            }
+        }
+
+        &:nth-child(3) {
+
+            a {
+                color: $green-100;
+            }
+
+            &::before {
+                inset: 0 -.5rem 0 auto;
+                width: 50%;
+                background-color: $white;
+            }
+
+            &::after {
+                background-color: $white;
+            }
+        }
+    }
+}
+
+.header__language {
+    position: relative;
+
+    ul {
+        position: absolute;
+        top: calc(100% - 10px);
+        left: 0;
+        right: 0;
+        transition: all 350ms ease;
+        opacity: 0;
+        pointer-events: none;
+
+        li {
+            padding: 0 .5rem;
+
+            img {
+                height: 1.25rem;
+            }
+
+            &.is-active {
+                display: none;
+            }
+        }
+
+        &.is-active {
+            top: calc(100% - 2px);
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+}
+
+.header__language-selected {
+    gap: .5rem;
+    padding: .5rem;
+    cursor: pointer;;
+
+    a {
+        display: flex;
+
+        img {
+            height: 1.25rem;
+        }
+
+        &:not(.is-active) {
+            display: none;
+        }
+    }
+
+    svg {
+        max-width: 1.5rem;
+        height: 1.25rem;
+        transition: all 350ms ease;
+        pointer-events: none;
+
+        path {
+            fill: $green-100;
+        }
+    }
+
+    &.is-active {
+
+        svg {
+            transform: scaleY(-1);
+        }
     }
 }
