@@ -1,14 +1,16 @@
 // CMS output
 @use '../base/variables' as *;
+@use '../base/backgrounds' as *;
 @use '../mixins/responsive' as *;
 @use '../mixins/font-size' as *;
 
 .cms-output {
     @include font(20, 32);
     color: $grey-200;
+    font-weight: 300;
+    font-family: $font-content-thin;
 
     &.intro {
-        @include font(20, 32);
         font-weight: 500;
     }
 
@@ -20,11 +22,35 @@
     h6 {
         margin-bottom: 0;
         letter-spacing: 1px;
-        font-family: $font-content-bold;
+        font-family: $font-content-regular;
 
         strong {
-            color: $grey-200;
+            color: $grey-100;
         }
+    }
+
+    h3 {
+      @include font(22, 30);
+    }
+
+    strong {
+        color: $green-100;
+    }
+
+    a[title='button'] {
+        @extend .bg--green-100;
+        @extend .bg--pattern;
+        display: inline-flex;
+        align-items: center;
+        padding: .5rem 1.5rem;
+        text-transform: uppercase;
+        font-family: $font-content-bold;
+        color: $white;
+        background-size: 4rem;
+    }
+
+    a:not([title]) {
+        color: $green-100;
     }
 
     p {
@@ -38,4 +64,47 @@
         }
     }
 
+    ul {
+        margin: 1rem 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            &:not(:nth-last-child(1)) {
+                margin-bottom: .01rem;
+            }
+
+            &::before {
+                display: inline-block;
+                font-family: $font-content-alternative;
+                font-weight: bold;
+                color: $grey-200;
+                content: '//';
+            }
+        }
+
+        &.d-flex {
+            gap: .5rem;
+            margin: 0;
+
+            li {
+
+                a {
+                    color: $white;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                &::before {
+                    margin-right: .5rem;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 991px) {
+        @include font(16, 32);
+    }
 }

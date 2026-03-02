@@ -1,0 +1,57 @@
+// Footer
+@use '../base/variables' as *;
+@use '../mixins/responsive' as *;
+@use '../mixins/font-size' as *;
+
+.footer {
+
+}
+
+.footer-upper {
+    position: relative;
+}
+
+.footer-upper__inner,
+.footer-lower__inner {
+    border-top: 2px solid $white;
+}
+
+.footer-upper__image {
+    height: 4rem;
+}
+
+.footer-lower__links {
+
+    li {
+
+        &:nth-child(1) {
+
+            &::before {
+                @media (min-width: 769px) {
+                    display: none;
+                }
+            }
+        }
+
+        &.is-social {
+
+            svg {
+                width: 1.75rem;
+                height: 1.75rem;
+
+                path {
+                    fill: $white;
+                }
+            }
+        }
+    }
+}
+
+.footer-lower__yours-truly {
+
+    &::before {
+        @media (max-width: 768px) {
+            display: none !important;
+        }
+    }
+}
