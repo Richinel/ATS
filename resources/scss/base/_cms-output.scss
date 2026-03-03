@@ -47,7 +47,6 @@
         align-items: center;
         justify-content: center;
         color: $white;
-        background-size: 4rem;
 
         &:not(:nth-last-child(1)) {
             @media (max-width: 768px) {
