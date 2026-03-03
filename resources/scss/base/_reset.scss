@@ -48,6 +48,37 @@ body {
     background-color: $white;
 }
 
+main {
+
+    > section {
+
+        &:not(.text-columns) {
+            padding: 6.25rem 0 0;
+
+            &:nth-last-child(1) {
+                padding: 6.25rem 0;
+
+                @media (max-width: 991px) {
+                    padding: 3.125rem 0 ;
+                }
+            }
+
+            @media (max-width: 991px) {
+                padding: 3.125rem 0 0;
+            }
+        }
+
+        &.text-columns {
+
+            &:not(:nth-child(1)) {
+                padding: 3.125rem 0 0;
+            }
+        }
+
+
+    }
+}
+
 
 a {
     color: inherit;

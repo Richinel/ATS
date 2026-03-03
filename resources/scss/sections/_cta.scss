@@ -1,0 +1,44 @@
+// CTA
+@use '../base/variables' as *;
+@use '../mixins/responsive' as *;
+@use '../mixins/font-size' as *;
+
+.cta {
+
+}
+
+.cta__inner {
+    max-width: 1600px;
+    margin: auto;
+    transform: skewX(-25deg);
+
+    .wrapper {
+        transform: skewX(25deg);
+    }
+
+    h2 {
+        line-height: 2rem;
+    }
+
+    .cms-output,
+    a {
+        font-family: $font-content-bold;
+    }
+
+    a {
+        gap: 1rem;
+    }
+
+    img {
+        height: 4rem;
+    }
+
+    @media (max-width: 1599px) {
+        margin: 0 3rem;
+        transform: skewX(-5deg);
+
+        .wrapper {
+            transform: skewX(5deg);
+        }
+    }
+}

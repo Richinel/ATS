@@ -14,5 +14,9 @@
 
 @use 'sections/home-products';
 @use 'sections/text-columns';
+@use 'sections/cta';
+@use 'sections/offers';
+@use 'sections/quote';
+@use 'sections/divider';
 
 @import '../../node_modules/bootstrap/scss/bootstrap-grid';

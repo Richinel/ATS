@@ -20,7 +20,7 @@ h6, .h6 {
     margin: 0;
     font-family: $font-content-bold;
     color: $green-100;
-    letter-spacing: 0.125rem;
+    letter-spacing: 0.02rem;
 }
 
 
@@ -38,14 +38,16 @@ h1,
 
 h2,
 .h2 {
-    //@include font(24, 32);
+    @include font(24, 32);
 
-    font-size: clamp(1.5rem, 1.5vw, 1.5rem);
-    line-height: clamp(2rem, 2vw, 2rem);
 
     @media(min-width: 1635px) {
         font-size: 1.25vw;
-        line-height: 2.25vw;
+        line-height: 1.75vw;
+    }
+
+    @media(max-width: 768px) {
+        @include font(22, 28);
     }
 }
 

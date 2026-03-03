@@ -1,4 +1,9 @@
-// Tekstkolommen
+// Divider
 @use '../base/variables' as *;
 @use '../mixins/responsive' as *;
 @use '../mixins/font-size' as *;
+
+.divider__inner {
+    width: 100%;
+    height: .25rem;
+}

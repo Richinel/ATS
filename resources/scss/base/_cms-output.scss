@@ -1,6 +1,7 @@
 // CMS output
 @use '../base/variables' as *;
 @use '../base/backgrounds' as *;
+@use '../components/buttons' as *;
 @use '../mixins/responsive' as *;
 @use '../mixins/font-size' as *;
 
@@ -8,21 +9,21 @@
     @include font(20, 32);
     color: $grey-200;
     font-weight: 300;
-    font-family: $font-content-thin;
+    font-family: $font-content-regular;
 
     &.intro {
         font-weight: 500;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h1, .h1,
+    h2, .h2,
+    h3, .h3,
+    h4, .h4,
+    h5, .h5,
+    h6, .h6 {
         margin-bottom: 0;
         letter-spacing: 1px;
-        font-family: $font-content-regular;
+        font-family: $font-content-bold;
 
         strong {
             color: $grey-100;
@@ -35,18 +36,28 @@
 
     strong {
         color: $green-100;
+        font-family: $font-content-bold;
     }
 
     a[title='button'] {
         @extend .bg--green-100;
         @extend .bg--pattern;
+        @extend .btn;
         display: inline-flex;
         align-items: center;
-        padding: .5rem 1.5rem;
-        text-transform: uppercase;
-        font-family: $font-content-bold;
+        justify-content: center;
         color: $white;
         background-size: 4rem;
+
+        &:not(:nth-last-child(1)) {
+            @media (max-width: 768px) {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            width: calc(100% - 4rem);
+        }
     }
 
     a:not([title]) {

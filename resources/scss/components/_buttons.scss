@@ -5,6 +5,10 @@
 
 .btn {
     @include font(14, 16);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
     position: relative;
     padding: .675rem 1.875rem;
     text-transform: uppercase;

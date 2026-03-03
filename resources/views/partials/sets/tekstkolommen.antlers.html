@@ -2,7 +2,7 @@
     <div class="wrapper">
         <div class="row">
             {{ tekstkolommen_kolommen  }}
-                <div class="col {{ if total_results == 2 }}col-md-6{{ /if }}">
+                <div class="{{ if total_results == 2 }} col-lg-6 {{ else }} col-12 {{ /if }}">
                     <div class="cms-output">
                         {{ tekstkolommen_content }}
                     </div>

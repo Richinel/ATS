@@ -47,6 +47,7 @@ header {
     a {
         text-transform: uppercase;
         font-family: $font-content-extra-bold;
+        letter-spacing: 0.125rem;
     }
 
     @media (max-width: 1634px) {

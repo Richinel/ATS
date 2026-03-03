@@ -1,0 +1,20 @@
+// Quote
+@use '../base/variables' as *;
+@use '../mixins/responsive' as *;
+@use '../mixins/font-size' as *;
+
+.quote {
+
+}
+
+.quote__inner {
+    gap: 1.5rem;
+
+    svg {
+        max-height: 8rem;
+
+        polygon {
+            fill: $green-100;
+        }
+    }
+}
