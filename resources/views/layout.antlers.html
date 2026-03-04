@@ -59,8 +59,8 @@
                         <ul class="d-flex align-items-center list-style-none">
                             {{ nav:main_navigation }}
                                 <li class="d-flex align-items-center">
-                                    <a href="{{ $url }}" class="h3 color--white text--uppercase">
-                                        {{ $title }}
+                                    <a href="{{ url }}" class="h3 color--white text--uppercase">
+                                        {{ title }}
                                     </a>
                                 </li>
                             {{ /nav:main_navigation }}
@@ -71,8 +71,8 @@
                         <ul class="d-flex align-items-center list-style-none header__cta-buttons">
                             {{ nav:header_ctas }}
                                 <li class="d-flex align-items-center {{ $additional_class }}">
-                                    <a href="{{ $url }}" class="h3 text--uppercase btn">
-                                        {{ if $additional_class === 'is-phone' }}
+                                    <a href="{{ url }}" class="h3 text--uppercase btn">
+                                        {{ if additional_class === 'is-phone' }}
                                             <span class="d-md-block d-none">
                                                 {{ $title }}
                                             </span>
@@ -81,7 +81,7 @@
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M224.2 89C216.3 70.1 195.7 60.1 176.1 65.4L170.6 66.9C106 84.5 50.8 147.1 66.9 223.3C104 398.3 241.7 536 416.7 573.1C493 589.3 555.5 534 573.1 469.4L574.6 463.9C580 444.2 569.9 423.6 551.1 415.8L453.8 375.3C437.3 368.4 418.2 373.2 406.8 387.1L368.2 434.3C297.9 399.4 241.3 341 208.8 269.3L253 233.3C266.9 222 271.6 202.9 264.8 186.3L224.2 89z"/></svg>
                                             </span>
                                         {{ else }}
-                                            {{ $title }}
+                                            {{ title }}
                                         {{ /if }}
                                     </a>
                                 </li>
@@ -139,8 +139,8 @@
             <ul class="list-style-none d-flex flex-wrap">
                 {{ nav:main_navigation }}
                     <li class="d-flex align-items-center">
-                        <a href="{{ $url }}" class="h3 color--white text--uppercase">
-                            {{ $title }}
+                        <a href="{{ url }}" class="h3 color--white text--uppercase">
+                            {{ title }}
                         </a>
                     </li>
                 {{ /nav:main_navigation }}
@@ -149,8 +149,8 @@
             <ul class="mt-xs-30 list-style-none d-flex flex-wrap">
                 {{ nav:header_ctas }}
                     <li class="d-flex align-items-center">
-                        <a href="{{ $url }}" class="h3 color--white text--uppercase">
-                            {{ $title }}
+                        <a href="{{ url }}" class="h3 color--white text--uppercase">
+                            {{ title }}
                         </a>
                     </li>
                 {{ /nav:header_ctas }}
