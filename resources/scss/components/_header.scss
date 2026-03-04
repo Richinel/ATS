@@ -148,6 +148,10 @@ header {
                 }
             }
 
+            @media (max-width: 1680px) {
+                @include font(14,20);
+            }
+
             @media (max-width: 1366px) {
                 padding: .25rem 1rem;
             }
