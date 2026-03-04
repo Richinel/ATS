@@ -299,6 +299,10 @@ header {
         }
     }
 
+    @media (min-width: 1679px) {
+        height: calc(100% - 1rem);
+    }
+
     @media (max-width: 1366px) {
         padding: 0.1rem 0.25rem
     }
