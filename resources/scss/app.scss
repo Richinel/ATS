@@ -18,5 +18,10 @@
 @use 'sections/offers';
 @use 'sections/quote';
 @use 'sections/divider';
+@use 'sections/usps';
+@use 'sections/references-clients';
+@use 'sections/footer-cta';
+
+@use 'vendor/tinyslider';
 
 @import '../../node_modules/bootstrap/scss/bootstrap-grid';

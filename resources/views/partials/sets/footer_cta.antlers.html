@@ -1,0 +1,35 @@
+<section class="footer-cta">
+    <div class="wrapper offset-md-3">
+        <div class="col-md-8">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <div class="footer-cta__image">
+                        <img src="{{ foto }}" alt="{{ foto:alt }}">
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="footer-cta__content mt-md-0 mt-xs-30">
+                        <h2 class="text--uppercase">
+                            {{ titel }}
+                        </h2>
+
+                        <div class="cms-output">
+                            {{ content }}
+                        </div>
+
+                        <div class="footer-cta__buttons d-flex flex-wrap mt-xs-30">
+                            <a href="tel:{{ bedrijfsinformatie:telefoonnummer }}" class="btn bg--green-100 bg--pattern color--white">
+                                {{ bedrijfsinformatie:telefoonnummer }}
+                            </a>
+
+                            <a href="mailto:{{ bedrijfsinformatie:e_mailadres }}" class="btn bg--green-100 bg--pattern color--white">
+                                {{ bedrijfsinformatie:e_mailadres }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

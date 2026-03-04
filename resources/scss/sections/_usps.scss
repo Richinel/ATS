@@ -1,0 +1,49 @@
+// USP's
+@use '../base/variables' as *;
+@use '../mixins/responsive' as *;
+@use '../mixins/font-size' as *;
+
+.usps {
+
+}
+
+.usps__items {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    @media (max-width: 991px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.usp {
+
+    img {
+        max-height: 15rem;
+
+        @media (max-width: 991px) {
+            max-height: 7rem;
+        }
+    }
+
+    .cms-output {
+        @include font(16, 24);
+        position: relative;
+        padding-right: 4rem;
+        padding-left: 1.75rem;
+
+        &::before {
+            position: absolute;
+            inset: auto auto auto 0;
+            font-family: $font-content-alternative;
+            color: $grey-200;
+            font-weight: 800;
+            content: '//';
+        }
+
+        @media (max-width: 991px) {
+            padding-right: 0;
+        }
+    }
+}

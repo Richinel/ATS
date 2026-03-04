@@ -1,0 +1,36 @@
+// Footer CTA
+@use '../base/variables' as *;
+@use '../mixins/responsive' as *;
+@use '../mixins/font-size' as *;
+
+.footer-cta {
+
+    img {
+        width: 100%;
+        max-width: 17.5rem;
+        height: 100%;
+        max-height: 17.5rem;
+        clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+
+        @media (max-width: 768px) {
+            display: block;
+            max-width: 12.5rem;
+            max-height: 12.5rem;
+            margin: auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+        text-align: center;
+    }
+}
+
+.footer-cta__buttons {
+    gap: 1rem;
+
+    .btn {
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+    }
+}

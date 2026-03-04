@@ -4,7 +4,7 @@
 @use '../mixins/font-size' as *;
 
 .btn {
-    @include font(14, 16);
+    @include font(18, 20);
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,9 @@
     z-index: 3;
 
     @each $key, $value in $colors {
+
         &.btn-skewed--#{$key} {
+            @include font(14, 16);
             position: relative;
 
             &::after {
@@ -34,5 +36,9 @@
 
     &.bg--pattern {
         background-size: 4rem;
+    }
+
+    @media (max-width: 768px) {
+        @include font(10, 16);
     }
 }

@@ -36,3 +36,20 @@ export function language() {
 
     return 'language';
 }
+
+export function menuButton() {
+
+    let menuBtn     = document.querySelector('.js-menu-button');
+    let menuBtnIcons         = menuBtn.querySelectorAll('span');
+    let menu                = document.querySelector('.js-mobile-menu');
+
+    if(!menu) return;
+
+    menuBtn.addEventListener('click', () => {
+        menu.classList.toggle('is-active');
+
+        menuBtnIcons.forEach(icon => icon.classList.toggle('d-none'));
+    })
+
+    return 'menuButton';
+}

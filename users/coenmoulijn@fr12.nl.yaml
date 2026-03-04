@@ -8,3 +8,7 @@ preferences:
       view: tree
     products_home:
       view: list
+    references:
+      view: list
+    clients:
+      view: tree

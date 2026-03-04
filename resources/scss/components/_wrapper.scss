@@ -10,4 +10,8 @@
     &.wrapper--xl {
         max-width: 1800px;
     }
+
+    @media (max-width: 768px) {
+        padding: 0 1rem;
+    }
 }

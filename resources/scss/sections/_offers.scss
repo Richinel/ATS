@@ -59,6 +59,12 @@
     height: 100%;
     border: 1px solid $grey-100;
 
+    h2 {
+        @media (max-width: 768px) {
+            padding-right: 2rem;
+        }
+    }
+
     @media (max-width: 768px) {
         max-width: 75vw;
     }
